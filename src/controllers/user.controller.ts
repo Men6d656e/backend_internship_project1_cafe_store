@@ -24,13 +24,13 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: config.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.cookie("isAdmin", user.isAdmin, {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: config.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(201).json({
@@ -71,13 +71,13 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
       res.cookie("token", token, {
         httpOnly: true,
         secure: config.NODE_ENV === "production",
-        sameSite: "none",
+        sameSite: config.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
       res.cookie("isAdmin", user.isAdmin, {
         httpOnly: true,
         secure: config.NODE_ENV === "production",
-        sameSite: "none",
+        sameSite: config.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
       res
@@ -93,13 +93,13 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
       res.cookie("token", token, {
         httpOnly: true,
         secure: config.NODE_ENV === "production",
-        sameSite: "none",
+        sameSite: config.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
       res.cookie("isAdmin", user.isAdmin, {
         httpOnly: true,
         secure: config.NODE_ENV === "production",
-        sameSite: "none",
+        sameSite: config.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
       res
@@ -118,12 +118,12 @@ export const logout = async (req: Request, res: Response): Promise<void> => {
     res.clearCookie("token", {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: config.NODE_ENV === "production" ? "none" : "lax",
     });
     res.clearCookie("isAdmin", {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: config.NODE_ENV === "production" ? "none" : "lax",
     });
     res.status(200).json({ message: "loged out successfully" });
   } catch (error) {
