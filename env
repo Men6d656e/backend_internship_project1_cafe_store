@@ -1,0 +1,10 @@
+# port
+PORT=
+# envirment
+NODE_ENV=
+# corse
+WHITELIST_ORIGENS=
+# database
+MONGO_URL=
+JWT_SECRET=
+JWT_EXPIRE=
