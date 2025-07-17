@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 // node modules
-import expres from "express";
+import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 // custom modules
@@ -18,7 +18,7 @@ import userRoutes from "./routes/user.route.js";
 import bookingRoutes from "./routes/booking.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import { connectToMongoDb } from "./lib/db.js";
-const app = expres();
+const app = express();
 app.set("trust proxy", 1);
 const corsOptions = {
     origin(origin, callback) {
@@ -37,8 +37,8 @@ const corsOptions = {
 };
 // // middleware
 app.use(cookieParser());
-app.use(expres.json());
-app.use(expres.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {

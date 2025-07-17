@@ -1,5 +1,5 @@
 // node modules
-import expres, { Application, Request, Response } from "express";
+import express, { Application, Request, Response } from "express";
 import cors, { CorsOptions } from "cors";
 import cookieParser from "cookie-parser";
 // custom modules
@@ -12,7 +12,7 @@ import adminRoutes from "./routes/admin.routes.js";
 
 import { connectToMongoDb } from "./lib/db.js";
 
-const app: Application = expres();
+const app: Application = express();
 app.set("trust proxy", 1);
 const corsOptions: CorsOptions = {
   origin(origin, callback) {
@@ -32,8 +32,8 @@ const corsOptions: CorsOptions = {
 };
 // // middleware
 app.use(cookieParser());
-app.use(expres.json());
-app.use(expres.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 (async () => {
