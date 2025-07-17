@@ -13,6 +13,7 @@ import adminRoutes from "./routes/admin.routes.js";
 import { connectToMongoDb } from "./lib/db.js";
 
 const app: Application = expres();
+app.set("trust proxy", 1);
 const corsOptions: CorsOptions = {
   origin(origin, callback) {
     if (
