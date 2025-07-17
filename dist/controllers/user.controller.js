@@ -31,12 +31,14 @@ export const login = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         res.cookie("token", token, {
             httpOnly: true,
             secure: config.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: "none",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
         });
         res.cookie("isAdmin", user.isAdmin, {
             httpOnly: true,
             secure: config.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: "none",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
         });
         res.status(201).json({
             message: "Login successflly",
@@ -72,11 +74,14 @@ export const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             res.cookie("token", token, {
                 httpOnly: true,
                 secure: config.NODE_ENV === "production",
+                sameSite: "none",
+                maxAge: 7 * 24 * 60 * 60 * 1000,
             });
             res.cookie("isAdmin", user.isAdmin, {
                 httpOnly: true,
                 secure: config.NODE_ENV === "production",
-                sameSite: "strict",
+                sameSite: "none",
+                maxAge: 7 * 24 * 60 * 60 * 1000,
             });
             res
                 .status(201)
@@ -92,11 +97,14 @@ export const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             res.cookie("token", token, {
                 httpOnly: true,
                 secure: config.NODE_ENV === "production",
+                sameSite: "none",
+                maxAge: 7 * 24 * 60 * 60 * 1000,
             });
             res.cookie("isAdmin", user.isAdmin, {
                 httpOnly: true,
                 secure: config.NODE_ENV === "production",
-                sameSite: "strict",
+                sameSite: "none",
+                maxAge: 7 * 24 * 60 * 60 * 1000,
             });
             res
                 .status(201)
@@ -114,12 +122,12 @@ export const logout = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.clearCookie("token", {
             httpOnly: true,
             secure: config.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: "none",
         });
         res.clearCookie("isAdmin", {
             httpOnly: true,
             secure: config.NODE_ENV === "production",
-            sameSite: "strict",
+            sameSite: "none",
         });
         res.status(200).json({ message: "loged out successfully" });
     }

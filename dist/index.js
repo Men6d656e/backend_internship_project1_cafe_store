@@ -19,6 +19,7 @@ import bookingRoutes from "./routes/booking.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import { connectToMongoDb } from "./lib/db.js";
 const app = expres();
+app.set("trust proxy", 1);
 const corsOptions = {
     origin(origin, callback) {
         if (config.NODE_ENV === "development" ||
