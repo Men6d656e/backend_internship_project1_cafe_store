@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       sameSite: config.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    res.cookie("isAdmin", user.isAdmin, {
+    res.cookie("isAdmin", user.isAdmin ? "admin":"user", {
       httpOnly: true,
       secure: config.NODE_ENV === "production",
       sameSite: config.NODE_ENV === "production" ? "none" : "lax",
@@ -74,7 +74,7 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
         sameSite: config.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
-      res.cookie("isAdmin", user.isAdmin, {
+      res.cookie("isAdmin", user.isAdmin ? "admin" : "user", {
         httpOnly: true,
         secure: config.NODE_ENV === "production",
         sameSite: config.NODE_ENV === "production" ? "none" : "lax",
@@ -96,7 +96,7 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
         sameSite: config.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
-      res.cookie("isAdmin", user.isAdmin, {
+      res.cookie("isAdmin", user.isAdmin ? "admin":"user", {
         httpOnly: true,
         secure: config.NODE_ENV === "production",
         sameSite: config.NODE_ENV === "production" ? "none" : "lax",
